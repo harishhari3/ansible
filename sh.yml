@@ -1,0 +1,16 @@
+---
+- name: Install Apache2 on localhost without SSH
+  hosts: localhost
+  become: true
+  connection: local
+
+  tasks:
+    - name: Update APT cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
+
